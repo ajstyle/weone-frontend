@@ -1,0 +1,9 @@
+{ 
+"name" : "production",
+"urlname":"production",
+"videoUploadUrl":"http://api.weoneapp.com:8880/#/upload/",
+"httpUrl":"http://52.66.128.60:3000",
+"httpUrlVideoUpload":"http://52.66.101.222:80",
+"smilUrl":"http://52.66.101.222:1935/vod/_definst_/",
+"imageUrl":"http://52.66.101.222:8595/video/"
+}

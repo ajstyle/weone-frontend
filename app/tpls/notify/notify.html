@@ -1,0 +1,145 @@
+<div class="page-title full-width ng-scope" ng-if="layoutOptions.pageTitles" title="Notify" description="">
+        <div class="col-md-6">
+            <div class="title-env">
+                <h1 class="title ng-binding">Notify</h1>
+                <p class="description ng-binding"></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="title-env text-right">
+                <div class="dataTables_length" id="example-1_length">
+                    <label>
+                        <div class="style-select notification-dropdown ">
+                            <select name="select" class="select " ng-change="getNotificationType(notification_type)" ng-model="notification_type">
+                                <option value="" disabled="" selected="" style="display:none;" class="">Notification</option>
+                                <option value="global">Global</option>
+                                <option value="update">Update</option>
+                            </select>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="rewards notify clearfix">
+  <div class="spinner-cover" ng-show="loading">
+     <div class="spinner">
+  </div>
+
+  </div>
+    <div class="panel panel-default">
+        <div class="row">
+            <div class="col-md-6 box-shadow">
+                <div class="panel-heading">
+                    <h4><i class="fa-bell-o"></i>Notification</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="mail-header">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="to">Subject:</label>
+                                    <input class="form-control" id="to" tabindex="1" type="text" ng-model="subject">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group ">
+                                    <label for="to">Message:</label>
+
+                                    <textarea class="form-control msg-txt" id="to" tabindex="1" type="text" height="250px;" ng-model="message_body"></textarea>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6 rewards-form notify-form">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="dataTables_length" id="example-1_length">
+                      <label>
+                          <div class="style-select">
+                              <select name="select" class="select" ng-change="changeShowRecord()" ng-model="limitValue">
+                                  <option value="" disabled="" selected="" style="display:none;" class="">Select Entries </option>
+                                  <option value="10">10</option>
+                                  <option value="25">25</option>
+                                  <option value="50">50</option>
+                                  <option value="100">100</option>
+                              </select>
+                          </div>
+                      </label>
+                  </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right-inner-addon ">
+                            <i class="fa fa-search icon-search"></i>
+                            <input type="search" class="form-control" placeholder="Search" ng-model="search" ng-change="searchUsers(0) ">
+                        </div>
+                        </div>
+                        </div>
+
+                    <div class="tabel-box">
+                        <div class="table-fixed clearfix">
+                            <ul class="table-head clearfix">
+                                <li class="no-sorting td1">
+                                    <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()">
+                                </li>
+                                <li class="td2">User Name <span>({{noOfSelections}})</span></li>
+
+                            </ul>
+                            <div class="table-body clearfix" id="parentscroll">
+                              <div class="spinner-covering" ng-show="load">
+                                 <div class="spinnering">
+                              </div>
+
+                              </div>
+                                <!--infinite-scroll-parent="true"-->
+                                <div>
+                                    <ul ng-repeat="user in data" class="clearfix">
+                                        <li class="td1">
+
+                                            <input type="checkbox" value="{{user.name}}" ng-change="add(user)" ng-model="user.selected">
+                                        </li>
+                                        <li class="td2">{{user.name}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div>
+                    <button type="button" ng-click="send_notification()" class="btn btn-primary btn-save pull-right">Send</button>
+                    <button type="button" ng-click="cancel()" class="btn btn-danger btn-cancel btn-close pull-right">Cancel</button>
+                </div>
+                <pagination
+                ng-model="currentPage" ng-show="searchFlag==false"
+              ng-change="pageChanged()"
+                total-items="pageCounter"
+                max-size="maxSize"
+                boundary-links="true">
+              </pagination>
+              <pagination
+              ng-model="searchPage" ng-show="searchFlag==true"
+            ng-change="pageChanged()"
+              total-items="pageCounter"
+              max-size="maxSize"
+              boundary-links="true">
+            </pagination>
+          </div>
+        </div>
+    </div>
+</div>

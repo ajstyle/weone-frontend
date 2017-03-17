@@ -1,0 +1,252 @@
+'use strict';
+
+module.exports = function (grunt) {
+
+    require('autostrip-json-comments');
+    var fs = require('fs');
+    // Load grunt tasks automatically
+    require('load-grunt-tasks')(grunt);
+
+    var appSettings = require('./config/application.conf.json');
+
+    grunt.initConfig({
+
+
+        // Set the application settings
+        settings: appSettings,
+
+
+        connect: {
+            options: {
+                hostname: '<%= settings.dev.hostname %>',
+                port: '<%= settings.dev.port %>',
+                livereload: '<%= settings.dev.liveReloadPort %>',
+                options: {
+                    index: 'index.html',
+                    maxAge: 300000
+                }
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: [
+            '.tmp',
+            '<%= settings.dev.dir %>'
+          ],
+                    index: 'index.html'
+                }
+            },
+            devel: {
+                options: {
+                    port: '<%= settings.dev.port %>',
+                    hostname: '<%= settings.dev.hostname %>',
+                    base: {
+                        path: '<%= settings.dev.dir %>',
+                        options: {
+                            index: 'index.html'
+                        }
+                    },
+                    middleware: function (connect, options, middlewares) {
+                        middlewares.unshift(function (req, res, next) {
+                            res.setHeader('Access-Control-Allow-Origin', '*');
+                            res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+                            res.setHeader('Access-Control-Allow-Headers','Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
+                            return next();
+
+                        });
+
+                        return middlewares;
+                    }
+                }
+            },
+            dist: {
+                options: {
+                    port: '<%= settings.dist.port %>',
+                    hostname: '<%= settings.dist.hostname %>',
+                    base: {
+                        path: '<%= settings.dist.dir %>',
+                        options: {
+                            index: 'index.html',
+                            maxAge: 300000
+                        }
+                    },
+                    middleware: function (connect, options, middlewares) {
+                        middlewares.unshift(function (req, res, next) {
+                            res.setHeader('Access-Control-Allow-Origin', '*');
+                            res.setHeader('Access-Control-Allow-Methods', '*');
+                            return next();
+
+                        });
+
+                        return middlewares;
+                    }
+                }
+            },
+        },
+        watch: {
+            json: {
+                files: ['<%= settings.dev.dir %>/**/*.json', '!<%= settings.dev.dir %>/core/*.json'],
+                tasks: ['ngconstant:development'
+               ]
+            }
+        },
+        // jsHint config
+        jshint: {
+            options: {
+                jshintrc: __dirname + '/.jshintrc',
+                reporter: require('jshint-stylish'),
+                force: true
+            },
+            all: [
+        // 'Gruntfile.js',
+        '<%= settings.dev.dir %>/scripts/**/*.js'
+      ],
+        },
+        uglify: {
+            options: {
+                mangle: false,
+                compress: {
+                    drop_console: true
+                }
+            }
+        },
+        less: {
+             dist: {
+                options: {
+                    style: 'expanded',
+                    compass: false
+                },
+                files: {
+                    '<%= settings.dist.dir%>/assets/css/application.css': '<%= settings.dev.dir%>/assets/less/application.less'
+                }
+             },
+             dev: {
+                options: {
+                    style: 'expanded',
+                    compass: false,
+                    sourceMap:'true',
+                    sourceMapFilename: '<%= settings.dev.dir%>/assets/css/application.css.map',
+                    sourceMapURL: '<%= settings.dev.dir%>/assets/css/application.css.map',
+                    sourceMapBasepath: '<%= settings.dev.dir%>/assets/css/application.css.map'
+                },
+                files: {
+                    '<%= settings.dev.dir%>/assets/css/application.css': '<%= settings.dev.dir%>/assets/less/application.less'
+                }
+             },
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= settings.dist.dir %>/assets/css',
+                    src: ['*.css', '!bower_components/**'],
+                    dest: '<%= settings.dist.dir %>/assets/css',
+                    ext: '.min.css'
+        }]
+            }
+        },
+        clean: {
+            dist: {
+                files: [{
+                    dot: true,
+                    src: [
+            '.tmp',
+            '<%= settings.dist.dir %>/*',
+            '!<%= settings.dist.dir %>/.git*'
+          ]
+        }]
+            },
+            server: '.tmp',
+            docs: '<%= settings.docs.dir %>',
+            coverage: '<%= settings.test.coverage.dir %>'
+        },
+
+        // Copy config
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= settings.dev.dir %>',
+                    dest: '<%= settings.dist.dir %>',
+                    src: ['**/**', '!assets/less/**']
+        }]
+            }
+        },
+        ngconstant: {
+            // Options for all targets
+            // Environment targets
+            development: {
+                options: {
+                    dest: '<%= settings.dev.dir %>/core/config.constant.js',
+                    space: '  ',
+                    wrap: '\n\n {%= __ngModule %}',
+                    name: 'Config',
+                },
+                constants: {
+                    $enviornment: require('./config/development.json')
+                }
+            },
+            production: {
+                options: {
+                    dest: '<%= settings.dev.dir %>/core/config.constant.js',
+                    space: '  ',
+                    wrap: '\n\n {%= __ngModule %}',
+                    name: 'Config',
+                },
+                constants: {
+                    $enviornment: require('./config/production.json')
+                }
+            },
+        }
+
+    });
+    /* @discription
+     n {string} it is build type can be production/development/staging*/
+    grunt.registerTask('build', 'Build a production ready app', function (n) {
+        if (n == null) {
+            grunt.warn('Build type must be specified');
+        }
+
+        //remove console from script
+        if (n == "production") {
+            grunt.config('uglify.options.compress.drop_console', true);
+        } else {
+            grunt.config('uglify.options.compress.drop_console', false);
+        }
+
+
+
+        //grunt.config('copy.vendor.files[0].src', finalCopyFiles);
+
+
+        grunt.task.run('clean:dist',
+             'ngconstant:' + n,             
+            'copy:dist',         
+            'cssmin',
+            'uglify',
+            'less:dist'           
+        );
+    });
+
+    grunt.registerTask('server', 'Start up the development live reload server', function (n) {
+        console.log("server" + n);
+        if (n == null) {
+            grunt.warn('Build type must be specified');
+        }
+        grunt.task.run('ngconstant:' + n,
+            'less:dev',           
+            'connect:devel',
+            'watch:json'
+            // 'concurrent:dev'
+        );
+    });
+    grunt.registerTask('default', 'Run all servers.', [
+    'server'
+  ]);
+
+    grunt.event.on('watch', function (action, filepath, target) {
+        //grunt.task.run('server');
+    });
+
+
+};

@@ -1,0 +1,319 @@
+@media only screen and (max-width: 1200px) {
+    .tabel-box {
+        overflow-x: auto;
+    }
+    .table {
+        width: 1000px;
+    }
+    
+}
+
+@media only screen and (max-width: 1023px) {
+    .login-container {
+        width: 95%;
+    }
+    .dataTables_filter {
+        position: absolute;
+        right: 15px;
+        top: -70px;
+    }
+    .dataTables_filter label {
+        display: block;
+    }
+    .dataTables_length label small {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .dataTables_length label small.entries{
+        left: 55px;
+        position: absolute;
+        top: 0;
+    }
+    .admin-users .dataTables_length .style-select {
+        width: 160px;
+    }
+    .advertisement-box .table {
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+    .advertisement-box .table-2 {
+        overflow-y: hidden;
+    }
+    .dataTables_filter .form-control {
+        width: 50%;
+    }
+    .dataTables_filter label {
+        text-align: left;
+        position: absolute;
+        left: 200px;
+    }
+    .box-shadow .dataTables_filter .form-control {
+        width: 51%;
+        position: relative;
+    }
+    .box-shadow {
+        background: none;
+    }
+    .rewards-form {
+        padding-left: 15px;
+        margin-top: 30px;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .rewards .dataTables_length .style-select {
+        display: block;
+    }
+    .dataTables_length label .entries {
+        position: relative;
+        top: -60px;
+        left: 45px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .login-page .login-form .lock-holder .form-group {
+        width: 263px;
+    }
+    .lock-holder .dot-left {
+        margin: 10px 15px 0;
+    }
+    .sidebar-menu {
+        width: 280px;
+    }
+    .dataTables_filter .form-control {
+        position: relative;
+        top: 25px;
+    }
+}
+
+
+@media (min-width: 1100px) and (max-width: 1300px) {
+    .table-fixed {
+        width: 510px;
+    }
+    
+
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .dot-left {
+        display: none;
+    }
+    .login-page .login-form .lock-holder .form-group {
+        width: 100%;
+    }
+    .lock-holder .admin-pic {
+        float: none;
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        top: 176px;
+        margin-left: -50px;
+        z-index: 99;
+    }
+    .lock-holder {
+        margin: 190px 0 0 0;
+    }
+    .error {
+        left: auto;
+        top: 10px;
+        right: 49px;
+        color: #dc0423;
+    }
+    .forgot-pass-box .txtb {
+        width: 85%;
+    }
+    .page-container {
+        display: table !important;
+    }
+    .forgot-pass-box {
+        width: 100%;
+    }
+    .btn-sign {
+        width: 100%;
+    }
+    .page-container .sidebar-menu .sidebar-menu-inner .main-menu {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a i {
+        color: #fff;
+    }
+    .btn-add-user {
+        top: -99px;
+    }
+    .uploadcare-if-mobile {
+        display: none;
+    }
+    .uploadcare-responsive-panel .uploadcare-dialog-big-button {
+        margin: 80px 0;
+    }
+    .advertisement-box .to {
+        right: 50%;
+        top: 78px !important;
+    }
+    .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle {
+        margin-top: 15px;
+    }
+    .uploadcare-dialog-close::before {
+        left: -11px;
+        padding: 3px 18px;
+        top: 6px;
+    }
+}
+
+
+@media only screen and (max-width: 479px) {
+    .forgot-pass-box .txtb h3 {
+        font-size: 21px;
+    }
+    .forgot-pass-box .txtb p br {
+        display: none;
+    }
+    .panel {
+        padding: 20px;
+    }
+    .page-container .main-content {
+        padding: 0px;
+    }
+    .page-container .main-content .page-title {
+        margin: 0 0 25px 0;
+    }
+    .dataTables_filter {
+        position: inherit;
+        right: 0;
+        top: 0;
+        float: left;
+        width: 100%;
+    }
+    .admin-users .dataTables_filter .form-control {
+        width: 100%;
+    }
+    .admin-users .dataTables_length .style-select {
+        width: 320px;
+        margin-bottom: 10px;
+    }
+    .btn-add-user {
+        top: -92px;
+        right: 0px;
+    }
+    .advertisement-box .panel-title,
+    .map-box .panel-title {
+        font-size: 17px !important;
+    }
+    .btn-close-icon {
+        position: relative;
+        left: 13px;
+        top: 7px;
+    }
+    .controls {
+        width: 237px;
+        top: 40px !important;
+        position: absolute;
+        left: 10px !important;
+    }
+    .viewer-group .radio {
+        width: 100%;
+        float: left;
+        margin-bottom: 15px;
+    }
+    .calendar .dropdown-menu {
+        width: auto;
+    }
+    .add-user-box .btn-group .btn-danger,
+    .add-user-box .btn-group .btn-info,
+    .add-user-box p .btn-success.pull-right {
+        width: 74px !important;
+    }
+    .panel-title .fa {
+        font-size: 24px;
+    }
+    .deleteConfirmationBox .panel-heading > .panel-title,
+    .deleteConfirmationBox p {
+        font-size: 15px;
+    }
+    .deleteConfirmationBox .panel-color.deleteConfirmationBox .panel-heading {
+        margin-left: -24px;
+        margin-right: -24px;
+    }
+    .panel.panel-color .panel-heading {
+        margin-left: -21px;
+        margin-right: -21px;
+    }
+    .panel.panel-color.deleteConfirmationBox .panel-heading {
+        margin-left: -22px;
+        margin-right: -21px;
+    }
+    .errors-container {
+        display: none;
+    }
+    .advertisement-box .panel-heading .btn-add-user small {
+        display: block;
+        display: inline;
+    }
+    .advertisement-box .panel-heading .btn-add-user span {
+        display: none;
+    }
+    .advertisement-box .panel-heading .btn-add-user {
+        top: -89px;
+    }
+    .profile-pic {
+        margin-bottom: 20px;
+    }
+    .user-info-navbar {
+        margin: 0px;
+    }
+    .user-profile:hover .dropdown-menu {
+        display: block;
+    }
+    .dataTables_filter label {
+        left: 0;
+    }
+    .dataTables_length .style-select {
+        width: 290px
+    }
+    .dataTables_filter .form-control {
+        width: 100%;
+    }
+    .box-shadow .dataTables_filter .form-control {
+        width: 100%;
+    }
+    .dataTables_filter .form-control {
+        margin-top: 25px;
+    }
+    bandwith ul {
+        width: 117.7%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .login-container {
+        padding: 50px 0;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .controls {
+        width: 270px;
+    }
+    .btn-add-user {
+        top: -94px;
+    }
+    .dataTables_filter label {
+        position: absolute;
+    }
+    .dataTables_filter .form-control {
+        margin-top: 26px;
+    }
+}
+
+
+
+
+@media (min-width: 1370px) and (max-width: 1920px) {
+    .admin-users .table {
+        width: 100%;
+    }
+}

@@ -1,0 +1,107 @@
+@media (min-width:768px) and (max-width:1200px) {
+    .bg-right img {
+        bottom: 22%;
+    }
+    .visit {
+        left: 50%;
+    }
+    .bg-left img {
+        top: 25%;
+        left: 0%
+    }
+}
+
+@media (min-width:800px) and (max-width:1280px) {
+    .bg-right img {
+        bottom: 20%;
+    }
+}
+@media (min-width:600px) and (max-width:800px) {
+    .view-video-box {
+        width: 86%;
+    }
+    .logo2 {
+        left: 6%;
+    }
+    .play-video-box {
+        width: 505px;
+    }
+   .bg-left img {
+        left: -16%;
+        top: 21%;
+        width: 60%;
+    }
+    .bg-right img {
+        width: 50%;
+        bottom: 24%;
+        right: 1%;
+    }
+    .visit {
+        left: 27%;
+    }
+    .google-play {
+        width: 100%;
+        left: 34%;
+        bottom: 12%;
+    }
+}
+@media (min-width:320px) and (max-width:480px) {
+    .bg-right, .bg-left{
+        display: none;
+    }
+    .play-video-box {
+        width: 300px;
+        margin-left: -30px;
+    }
+   .jw-logo-image {
+        width: 35px;
+        top: -19px;
+        position: relative;
+        left: 17px;
+   }
+    .demo {
+        left: 17%;
+        top: 45%;
+    }
+    .logo2 {
+        position: absolute;
+        top: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .view-video-box .heading {
+        font-size: 19px;
+    }
+    .wide-area {
+        background: none;
+    }
+    .google-play {
+        bottom: 15%;
+    }
+    .visit {
+        left: -38%;
+        bottom: 3%;
+    }
+    body {
+        overflow-y: scroll;
+    } 
+    .video-wrap {
+        height: 750px;
+        overflow-y: scroll;
+    }
+    .view-image {
+        width: 96%;
+        margin: 0 auto 30px -10px;
+        height: auto;
+        text-align: center;
+    }
+    .view-image img {
+        text-align: center;
+
+    }
+    
+}
+
+
+
+

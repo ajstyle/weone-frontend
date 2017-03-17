@@ -1,0 +1,72 @@
+
+<div class="login-container">
+
+	<div class="display-table wow fadeInUp">
+
+		<div class="col-md-12">
+
+			<script type="text/javascript">
+				jQuery(document).ready(function($)
+				{
+					// Reveal Login form
+					setTimeout(function(){ $(".fade-in-effect").addClass('in'); }, 1);	
+					// Set Form focus
+					$("form#login .form-group:has(.form-control):first .form-control").focus();
+				});
+			</script>
+
+			<!-- Errors container -->
+			<div class="errors-container">
+
+				
+			</div>
+
+			<!-- Add class "fade-in-effect" for login form effect -->
+			<form method="post" novalidate name="loginForm" role="form" id="login" class="login-form fade-in-effect" ng-controller="LoginpageController">
+
+				<div class="login-header">
+					<a href="" class="logo">
+						<img src="assets/images/logo.png" alt="logo" />
+					</a>
+					<p>Please sign in to your account</p>
+				</div>
+
+                <div class="lock-holder clearfix">
+                    <div class="form-group input-group">
+                        <input type="email" ng-required="true" class="form-control" placeholder="Email" name="email" id="email" autocomplete="off" ng-model="email" ng-change="resetMsg()"/>
+                        <span id="basic-addon1" class="input-group-addon">@</span>
+                        <div class="error">
+                         <span ng-show="(loginForm.email.$error.required && !loginForm.email.$pristine) ||(loginForm.email.$error.required && submitted)">email  is required</span>
+                        <span ng-show="loginForm.email.$invalid && !loginForm.email.$error.required ">email is invalid </span>
+                        </div>
+                    </div>
+                    <i class="fa fa-ellipsis-h dot-left"></i>
+                    <img class="admin-pic" src="assets/images/img_admin.jpg" alt="img">
+                    <i class="fa fa-ellipsis-h dot-left"></i>
+                    <div class="form-group input-group">
+                    <input type="password" ng-required="true" placeholder="Password" class="form-control" name="password" id="password" autocomplete="off" ng-model="password" ng-change="resetMsg()"/>
+                        <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-key"></i></span>
+                        <div class="error">
+                            <span ng-show="(loginForm.password.$error.required && !loginForm.password.$pristine)||(loginForm.password.$error.required && submitted)">password is required</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="not-found-msg">{{loginMsg}}</p>
+                <div class="btn-row clearfix">
+                    <button type="submit" class="btn btn-sign"  ng-click="login(loginForm.$valid)">
+                        <i class="fa fa-unlock-alt"></i>
+                        SIGN IN
+                    </button>
+                </div>
+				<div class="login-footer">
+					<a ui-sref="forgot">Forgot your password?</a> <i class="fa fa-hand-o-right"></i> 
+				</div>
+
+			</form>
+
+			
+		</div>
+
+	</div>
+
+</div>

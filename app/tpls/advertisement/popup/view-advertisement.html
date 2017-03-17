@@ -1,0 +1,105 @@
+<div class="panel view-advertisement-box panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-eye"></i> View Advertisement </h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="td1">Advertisement Name</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td class="td1">Advertisement Type</td>
+                    <td>{{type}}</td>
+                </tr>
+                <tr>
+                    <td class="td1">Uploaded File</td>
+                    <td>
+                        <div class="imgb-video">
+                            <img src="{{thumbnail}}" alt="img">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">Duration (Min)</td>
+                    <td>{{duration_time}}</td>
+                </tr>
+                <tr>
+                    <td class="td1">Client Name</td>
+                    <td>{{clientName}}</td>
+                </tr>
+
+                 <tr>
+                    <td class="td1">Advertisement URL</td>
+                    <td>{{advert_url}}</td>
+                </tr>
+                <tr>
+                    <td class="td1">Start Date</td>
+                    <td>{{startDate | date:'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td class="td1">End Date</td>
+                    <td>{{endDate  | date:'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="background:#fafafa;">Viewer Group</td>
+                </tr>
+                <tr>
+                    <td class="td1">Gender</td>
+                    <td>{{gender}}</td>
+                </tr>
+                <tr>
+                    <td class="td1">Age</td>
+                    <td>{{age.min_age}} to {{age.max_age}}</td>
+                </tr>
+
+                 <tr>
+                    <td class="td1">Number of comments</td>
+                    <td><p>{{number_of_comments}} </p></td>
+                </tr>
+                 <tr>
+                    <td class="td1">Number of likes</td>
+                    <td><p>{{number_of_likes}} </p></td>
+                </tr>
+                 <tr>
+                    <td class="td1">Number of times viewed</td>
+                    <td><p>{{number_of_times_viewed}}<button class="btn btn-primary btn-map btn-icon btn-add-comment"  ng-click="userMap()">
+                            <i class="fa fa-map-marker fa-map"></i>Users<span></span>
+                        </button> </p></td>
+                </tr>
+                  <tr>
+                    <td class="td1">Number of times complete viewed</td>
+                    <td><p>{{number_of_times_complete_viewed}} </p></td>
+                </tr>
+                <tr>
+                  <td class="td1">Number of times called</td>
+                  <td><p>{{number_of_calls}} </p></td>
+              </tr>
+              <tr>
+                <td class="td1">Number of times visited</td>
+                <td><p>{{number_of_visits}} </p></td>
+            </tr>
+
+                <tr>
+                    <td class="td1">Description</td>
+                    <td><p>{{description}} </p></td>
+                </tr>
+                 <tr>
+                    <td class="td1">Comment</td>
+                    <td><button class="btn btn-primary btn-icon btn-add-comment"  ng-click="userComment()">
+                            <i class="fa fa-comment"></i><span>View all Comments</span>
+                        </button>
+                     </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+        <button class="btn btn-primary btn-cancel btn-close  pull-right" type="button" ng-click="cancel()">Close</button>
+    </div>
+</div>

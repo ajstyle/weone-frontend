@@ -1,0 +1,38 @@
+
+<div class="panel view-advertisement-box panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-comment"></i>Comments<span class="comment-count">{{ commentCount()}}</span></h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body user-comment-box" ng-show="commentCount()">
+        <ul ng-repeat="comment in comments" ng-hide="comment.isDeleted" class="clearfix" >
+            <li class="clearfix">
+                <img src={{comment.image_url}} ng-hide="!comment.image_url" class="img-circle" width="50px;" height="50px">
+                <img src="/assets/images/img_admin.jpg" ng-hide="comment.image_url" class="img-circle" width="50px;" height="50px">
+
+                <div class="txtb" id="parentscroll">
+                    <h5>{{comment.name}}</h5>
+                    <div>{{comment.comment}}</div>
+                </div>
+                <!-- <a ng-click="deleteComment(comment)" class="btn btn-icon commit-delete btn-blue btn-red"><i class="fa fa-times"></i></a> -->
+                <a ng-click="deleteCommentConfirmation(comment)" class="btn btn-icon commit-delete btn-blue btn-red"><i class="fa fa-times"></i></a>
+            </li>
+        </ul>
+        <div class="pannel-bottom">
+      <button class="btn btn-primary btn-cancel btn-close  pull-right" type="button" ng-click="cancel()">Close</button>
+    </div>
+    </div>
+    <!-- <div class="panel-body" ng-hide="commentCount()"> -->
+    <div class="panel-body" ng-hide="noComments">
+      <div class="no-comments-found">
+      No Comments Found
+    </div>
+    </div>
+    <div class="panel-body" ng-hide="!isLoading">
+      <div class="no-comments-found">
+      Loading...
+    </div>
+    </div>
+</div>

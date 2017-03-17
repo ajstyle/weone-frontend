@@ -1,0 +1,26 @@
+<div class="panel map-box panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-map-o"></i> Add Location on Map </h3>
+        <div class="panel-options">
+            <a href="" ng-click="ok()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="add-location-map">
+            <form name="myForm" ng-init="init(latitude,longitude)">
+                <div class="modal-body map">
+                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                    <div id="map"></div>
+                </div>
+                <div class="modal-footer ng-scope">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button ng-click="ok()" class="btn btn-primary btn-save pull-right" type="button">Next</button>
+                            <button ng-click="close()" class="btn btn-danger btn-close btn-cancel pull-right" type="button">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

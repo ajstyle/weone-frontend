@@ -1,0 +1,127 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Rewards" description=""></page-title>
+<div class="rewards clearfix">
+  <div class="spinner-cover" ng-show="loading">
+     <div class="spinner">
+  </div>
+  </div>
+    <div class="panel panel-default">
+        <div class="row">
+            <div class="col-md-7 box-shadow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="dataTables_length" id="example-1_length">
+                                <label><small>Show</small>
+                                    <div class="style-select">
+                                        <select name="select1" class="select" ng-change="changeShowRecord()" ng-model="limitValue">
+                                            <option value="" disabled="" selected="" style="display:none;" class="">Select</option>
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+
+                                        </select>
+                                    </div> <small class="entries"> Entries</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="example-1_filter" class="dataTables_filter">
+                                <label for="search">Search:</label>
+                                <input type="search" class="form-control input-sm" id="search" aria-controls="example-1" ng-model="search" ng-change="searchUsers(0)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tabel-box create-reward">
+                    <div class="table-fixed clearfix">
+                        <ul class="table-head clearfix">
+                            <li class="no-sorting td1">
+                                <input type="checkbox" ng-model="selectedAll"  ng-change="checkAll()">
+                                <li class="td2">User Name <span>({{noOfSelections}})</span></li>
+                                <li class="td3">Phone No.</li>
+                            </li>
+
+
+                        </ul>
+                        <div class="table-body clearfix" id="parentscroll">
+                          <div class="spinner-coveringRewards" ng-show="load">
+                             <div class="spinneringRewards">
+                          </div>
+
+                          </div>
+                            <!--infinite-scroll-parent="true"-->
+                       <!-- <div infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1' infinite-scroll-container='"#himanshu"'> -->
+                            <!-- <div infinite-scroll="nextPage()" infinite-scroll-distance="0" infinite-scroll-disabled='busy' > -->
+                            <div
+                                <ul ng-repeat="user in Users">
+                                    <li class="td1">
+                                            <input type="checkbox" value="{{user._id}}" ng-model="user.Selected"   ng-change="addOrRemoveUser(user.Selected,user)">
+                                    </li>
+                                    <li class="td2">{{user.name}}</li>
+                                    <li class="td3">{{user.phonenumber}}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    </div>
+                    <pagination ng-show="searchFlag==false"
+                    ng-model="currentPage"
+                  ng-change="pageChanged()"
+                    total-items="pageCounter"
+                    max-size="maxSize"
+                    boundary-links="true">
+                  </pagination>
+                  <pagination ng-show="searchFlag==true"
+                  ng-model="searchUserPage"
+                ng-change="pageChanged()"
+                  total-items="pageCounter"
+                  max-size="maxSize"
+                  boundary-links="true">
+                </pagination>
+                </div>
+            </div>
+            <div class="col-md-5 rewards-form">
+                <form name="rewardForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <div ng-class="{'css-form-error': (rewardForm.rewardName.$invalid && !rewardForm.rewardName.$pristine) || (rewardForm.rewardName.$invalid && rewardForm.$submitted)||(rewardForm.rewardName.$error.required && submitted )}">
+                            <input type="text" ng-maxlength="30" class="form-control" id="name" ng-model="reward.name" name="rewardName" required/>
+                        </div>
+                        <span class="input-error" ng-show="(rewardForm.rewardName.$error.maxlength)">Name is Too Long</span>
+                        <span class="input-error" ng-show="(rewardForm.rewardName.$error.required && !rewardForm.rewardName.$pristine)||(rewardForm.rewardName.$error.required  &&  submitted)">Name is Required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="textDisplay">Text to Display</label>
+                        <div ng-class="{'css-form-error': (rewardForm.testDisplay.$invalid && !rewardForm.testDisplay.$pristine) || (rewardForm.testDisplay.$invalid && rewardForm.$submitted)||(rewardForm.testDisplay.$error.required && submitted )}">
+                            <input type="text" class="form-control" id="textDisplay" ng-model="reward.text_to_display" name="testDisplay" required />
+                        </div>
+                        <span class="input-error" ng-show="(rewardForm.testDisplay.$error.required && !rewardForm.testDisplay.$pristine)||(rewardForm.testDisplay.$error.required  &&  submitted)">Test to Display is Required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="coupon-type">Coupon type</label>
+                        <div ng-class="{'css-form-error': (rewardForm.type.$invalid && !rewardForm.type.$pristine) || (rewardForm.type.$invalid && rewardForm.$submitted)||(rewardForm.type.$error.required && submitted )}">
+                            <input type="text" class="form-control" id="coupon-type" ng-model="reward.type" name="type" required/>
+                        </div>
+                        <span class="input-error" ng-show="(rewardForm.type.$error.required && !rewardForm.type.$pristine)||(rewardForm.type.$error.required  &&  submitted)">Coupon type is Required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="co  uponAmount">Coupon Amount</label>
+                        <div ng-class="{'css-form-error': (rewardForm.cashAmount.$invalid && !rewardForm.cashAmount.$pristine) || (rewardForm.cashAmount.$invalid && rewardForm.$submitted)||(rewardForm.cashAmount.$error.required && submitted )}">
+                            <input type="number" min='1' class="form-control" id="couponAmount" ng-model="reward.cash_amount" name="cashAmount" required/>
+                        </div>
+                        <span class="input-error" ng-show="(rewardForm.cashAmount.$invalid && !rewardForm.cashAmount.$pristine) || (rewardForm.cashAmount.$error.required && !rewardForm.cashAmount.$pristine)||(rewardForm.cashAmount.$error.required  &&  submitted)">Coupon Amount is Required</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-save pull-right" ng-click="sendReward(rewardForm.$valid)">Send</button>
+                    <button type="button" ng-click="cancel()" class="btn btn-danger btn-cancel btn-close pull-right">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end admin users -->

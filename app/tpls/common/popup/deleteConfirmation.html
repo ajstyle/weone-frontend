@@ -1,0 +1,13 @@
+<div class="panel deleteConfirmationBox panel-color panel-danger"><!-- Add class "collapsed" to minimize the panel -->
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-trash"></i> Delete Confirmation Required</h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <p>Are You Sure You Want To Delete This.</p>
+    </div>
+    <button class="btn btn-danger btn-close pull-right" ng-click="ok()" type="button">Delete</button>
+    <button class="btn btn-primary btn-close btn-cancel pull-right" ng-click="cancel()" type="button">Cancel</button>
+</div>

@@ -1,0 +1,71 @@
+<!-- start add user box -->
+<div class="add-user-box clearfix">
+    <div class="panel profile-box panel-color panel-blue">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-eye"></i> View Client</h3>
+            <div class="panel-options">
+                <a href="" ng-click="ok()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="profile-pic">
+                        <img class="img-inline" src="{{user.image_url}}" alt="img">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="profile-info">
+                        <div class="tabel-box">
+                            <table id="example-1" class="table table-striped" cellspacing="0" width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td> Name </td>
+                                        <td>{{user.userName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email Address</td>
+                                        <td>{{user.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>{{user.gender}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role</td>
+                                        <td>{{user.role}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone No.</td>
+                                        <td>{{user.phoneNumber}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birth</td>
+                                        <td>{{user.dob  | date:'yyyy-MM-dd'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Client Organization Logo</td>
+                                        <td>
+                                              <div class="imgb-video">
+                            <img src="{{user.logo_image_url}}" alt="img">
+                        </div>
+                                            
+                                            
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Organization Name</td>
+                                        <td>{{user.client_org_name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="btn mt15 btn-primary btn-close btn-cancel pull-right" ng-click="ok()" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end add user box -->
+

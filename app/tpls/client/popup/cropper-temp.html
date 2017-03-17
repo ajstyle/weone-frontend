@@ -1,0 +1,39 @@
+
+<div class="panel add-user-box panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-user-plus"></i> Select Picture</h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+                    <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+                    </img-crop>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cropArea2">
+                    <img ng-src="{{croppedDataUrl}}">
+                </div>
+                <div>
+                    <span class="progress" ng-show="progress >= 0">
+                        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+                    </span>
+                    <span class="success-msg" ng-show="result">Upload Successful</span>
+                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                    <button class="btn btn-blue select-picture" ngf-select ng-model="picFile"  accept="image/*">Select Picture</button>
+                  <button class="btn btn-blue" ng-click="upload(croppedDataUrl)">Submit</button>
+    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                
+            </div>
+        </div>  
+    </div>
+</div>

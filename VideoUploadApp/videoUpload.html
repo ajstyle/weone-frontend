@@ -1,0 +1,64 @@
+<div class="video-wrap">
+    <div class="video-box">
+        <div class="logo" ng-hide="showBeforeUpload">
+            <span><img src="../assets/images/logo.png" alt="logo"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-show="showBeforeUpload">
+                    <div class="icon icon--order-success svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="72px" height="72px">
+                            <g fill="none" stroke="#fff" stroke-width="2">
+                            <circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+                            <path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="msg">file uploaded successfully</p>
+                </div>
+                <div ng-hide="showBeforeUpload">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="heading">select a file to upload</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form name="uploadVideoForm" novalidate>
+                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                <div class="form-control" data-trigger="fileinput"><i class="fa fa-file fileinput-exists"></i>  <span class="fileinput-filename"></span></div>
+                                <span class="input-group-addon btn btn-default btn-file">
+                                    <span>Select file</span>
+                                    <input type="file" ngf-select accept="{{viewPattren}}/*" ng-model="file" ngf-max-height="1000" ngf-max-size="500MB" name="...">
+                                </span>
+                            </div>
+                            <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                                <span class="progress" ng-show="f.progress >= 0">
+                                    <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                                </span>
+                            </div>
+                            <!-- {{errorMsg}}-->
+                            <button class="btn-upload" ng-disabled="uploadVideoForm.$invalid" type="submit" ng-hide="toggleCancel" ng-click="uploadFiles(file)"><i class="fa fa-upload"></i> Upload</button>
+                            <button class="btn-upload" ng-disabled="uploadVideoForm.$invalid" type="submit" ng-show="toggleCancel" ng-click="cancelUpload()"> Cancel</button>
+                            <ul class="uploadfile">
+                                <li ng-repeat="item in uploader.queue" >
+                                    <div>Name: {{ item.file.name }}</div>
+                                    <div>Size: {{ item.file.size }}</div>
+                                    <div ng-hide="true">
+                                    <div class="progress" >
+                                        Progress: <span>{{ item.progress }} %</span>
+                                        <div class="item-progress-box">
+                                            <div class="item-progress" ng-style="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </div>
+                                        </div>
+                                    <div>Uploaded: {{ item.isUploaded }}</div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

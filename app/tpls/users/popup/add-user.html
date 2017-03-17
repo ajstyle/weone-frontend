@@ -1,0 +1,111 @@
+<!-- start add user box -->
+<div class="add-user-box clearfix">
+    <div class="panel add-user-box panel-color panel-blue">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-user-plus"></i> Add User</h3>
+            <div class="panel-options">
+                <a href="" ng-click="ok()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form role="form"  name="userForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="firstName">Name</label>
+                             <div ng-class="{'css-form-error': (userForm.firstName.$invalid && !userForm.firstName.$pristine) || (userForm.firstName.$invalid && userForm.$submitted)||(userForm.firstName.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="firstName" ng-model="user.name" name="firstName"  required>
+                            </div>
+                            <span class="input-error" ng-show="(userForm.firstName.$error.required && !userForm.firstName.$pristine)||(userForm.firstName.$error.required  &&  submitted)">Name is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div ng-class="{'css-form-error': (userForm.email1.$invalid && !userForm.email1.$pristine) || (userForm.email1.$invalid && userForm.$submitted)||(userForm.email1.$error.required && submitted )}">
+                                <input type="email" ng-model="user.email" name="email1" class="form-control" id="email1" required ng-change="checkEmail()">
+                            </div>
+                            <span class="input-error" ng-show="(userForm.email1.$error.required && !userForm.email1.$pristine)||(userForm.email1.$error.required  &&  submitted)">Email is Required</span>
+                            <span class="input-error" ng-show="userForm.email1.$error.email">Invalid email address.</span>
+                            <span class="input-error" ng-show="emailFlag">Email address already exist</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div ng-class="{'css-form-error': (userForm.password1.$invalid && !userForm.password1.$pristine) || (userForm.password1.$invalid && userForm.$submitted)||(userForm.password1.$error.required && submitted )}">
+                                <input type="password" class="form-control" id="password1" ng-model="user.password" name="password1" required>
+                            </div>
+                            <span class="input-error" ng-show="(userForm.password1.$error.required && !userForm.password1.$pristine)||(userForm.password1.$error.required  &&  submitted)">Password is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group clearfix">
+                            <div ng-class="{'css-form-error': (userForm.radio.$invalid && !userForm.radio.$pristine) || (userForm.radio.$invalid && userForm.$submitted)||(userForm.radio.$error.required && submitted )}">
+                                <label>Gender</label>
+                                <div class="radio">
+                                    <input type="radio" id="r1" name="radio" ng-model="user.gender" value="male" required>
+                                    <label for="r1"><span></span>Male</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="r2" name="radio" ng-model="user.gender" value="female" required>
+                                    <label for="r2"><span></span>Female</label>
+                                </div>
+                            </div>
+                            <span class="input-error" ng-show="(userForm.radio.$error.required && !userForm.radio.$pristine)||(userForm.radio.$error.required  &&  submitted)">Gender is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Role</label>
+                            <div ng-class="{'css-form-error': (userForm.select.$invalid && !userForm.select.$pristine) || (userForm.select.$invalid && userForm.$submitted)||(userForm.select.$error.required && submitted )}">
+                                <div class="style-select">
+                                    <select name="select" class="select" ng-model="user.role" required>
+                                        <option value="ROLE_ADMIN">admin</option>
+                                        <option value="ROLE_DELEGATED_ADMIN">delegatedAdmin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="input-error" ng-show="(userForm.select.$error.required && !userForm.select.$pristine)||(userForm.select.$error.required  &&  submitted)">Role is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phonenumber">Phone No.</label>
+                            <div ng-class="{'css-form-error': (userForm.phonenumber.$invalid && !userForm.phonenumber.$pristine) || (userForm.phonenumber.$invalid && userForm.$submitted)||(userForm.phonenumber.$error.required && submitted )}">
+                                <input ng-minlength="10" ng-maxlength="10" type="number" class="form-control" id="phonenumber" ng-model="user.phonenumber" name="phonenumber" ng-required="true">
+                            </div>
+                            <span class="input-error" ng-show="(userForm.phonenumber.$error.required && !userForm.phonenumber.$pristine)||(userForm.phonenumber.$error.required  &&  submitted)">Valid Phone Number is Required</span>
+                            <span class="input-error"  ng-show="((userForm.phonenumber.$error.minlength || userForm.phonenumber.$error.maxlength) && userForm.phonenumber.$dirty) ">phone number should be 10 digits</span>
+                        </div>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <div ng-class="{'css-form-error': (userForm.date_of_birth.$invalid && !userForm.date_of_birth.$pristine) || (userForm.date_of_birth.$invalid && userForm.$submitted)||(userForm.date_of_birth.$error.required && submitted )}">
+                                <p>
+   <input type="text" class="form-control" datepicker-popup="{{format}}"  is-open="startOpened" min="minStartDate" max="maxStartDate" datepicker-options="dateOptions" close-text="Close" ng-click="openStart()" name="date_of_birth" ng-model="user.date_of_birth" required>
+                                </p>
+                            </div>
+                            <span class="input-error" ng-show="(userForm.date_of_birth.$error.required && !userForm.date_of_birth.$pristine)||(userForm.date_of_birth.$error.required  &&  submitted)">Date of Birth is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btn-bottom">
+                    <div class="col-md-12">
+                        <button type="submit" ng-click="saveUser(userForm.$valid)" class="btn btn-primary btn-save pull-right">Save</button>
+                        <button type="button" ng-click="cancel()" class="btn btn-danger btn-cancel btn-close pull-right">Cancel</button>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end add user box -->

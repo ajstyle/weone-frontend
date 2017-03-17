@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weone">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+
+	<title>WeOne</title>
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+	<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+   
+
+</head>
+
+<body>
+<div class="video-wrap">
+    <div class="video-box">
+        <img class="logo" src="assets/images/logo.png" alt="img">
+        
+        <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="heading2">Upload file</h4>
+                                </div>
+                            </div>
+                            <div ng-class="{'css-form-error': (advertisementForm.chooseFile.$error.required && submitted )}">
+                       <input type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+          accept="{{viewPattren}}/*" ngf-max-height="1000" ngf-max-size="50MB">
+                                
+                                File:
+  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+          <div style="width:{{f.progress}}%"  
+               ng-bind="f.progress + '%'"></div>
+      </span>
+  </div>     
+  {{errorMsg}}
+                                
+                        
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.chooseFile.$error.required  &&  submitted)">Choose File is Required</span>
+                            <ul class="uploadfile">
+                                <li ng-repeat="item in uploader.queue">
+                                    <div>Name: {{ item.file.name }}</div>
+                                    <div>Size: {{ item.file.size }}</div>
+                                    <div class="progress">
+                                        Progress: <span>{{ item.progress }} %</span>
+                                        <div class="item-progress-box">
+                                            <div class="item-progress" ng-style="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </div>
+                                    <div>Uploaded: {{ item.isUploaded }}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
+    </div>
+</div>
+    <script>
+        var app = angular.module('weone', [
+        
+        
+    </script>
+    
+<script src="app/js/angular/angular.min.js"></script>
+<script src="app/js/angular/angular-resource.js"></script>
+<script src="app/js/angular-ui/ui-bootstrap-tpls-0.11.2.min.js"></script>
+<script src="app/tpls/advertisement/controller/advertisementController.js"></script>
+  <script src="/bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
+<script src="/bower_components/ng-file-upload/ng-file-upload.js"></script> <!-- for no hng-file-upload-shim.jstml5 browsers support -->    
+
+    
+</body>
+</html>

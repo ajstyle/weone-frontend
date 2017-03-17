@@ -1,0 +1,63 @@
+<!-- start add user box -->
+<div class="add-user-box clearfix">
+    <div class="panel add-user-box panel-color panel-blue">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-pencil-square-o"></i> Edit Reward</h3>
+            <div class="panel-options">
+                <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="editForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="rewardName">Reward Name</label>
+                            <div ng-class="{'css-form-error': (editForm.name.$invalid && !editForm.name.$pristine) || (editForm.name.$invalid && editForm.$submitted)||(editForm.name.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="firstName" name="name" ng-model="reward.name" required>
+                            </div>
+                            <span class="input-error" ng-show="(editForm.name.$error.required && !editForm.name.$pristine)||(editForm.name.$error.required  &&  submitted)">Name is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="couponCode">Coupon Code</label>
+                             <div ng-class="{'css-form-error': (editForm.couponCode.$invalid && !editForm.couponCode.$pristine) || (editForm.couponCode.$invalid && editForm.$submitted)||(editForm.couponCode.$error.required && submitted )}">
+                            <input type="text" class="form-control" id="couponCode" name="couponCode" ng-model="reward.coupon.coupon_code"  required>
+                            </div>
+                             <span class="input-error" ng-show="(editForm.couponCode.$error.required && !editForm.couponCode.$pristine)||(editForm.couponCode.$error.required  &&  submitted)">Coupon Code is Required</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="rewardAmount">Reward Amount</label>
+                            <div ng-class="{'css-form-error': (editForm.rewardAmount.$invalid && !editForm.rewardAmount.$pristine) || (editForm.rewardAmount.$invalid && editForm.$submitted)||(editForm.rewardAmount.$error.required && submitted )}">
+                                <input type="number" class="form-control" id="rewardAmount" name="rewardAmount" ng-model="reward.cash_amount" required>
+                            </div>
+                            <span class="input-error" ng-show="(editForm.rewardAmount.$error.required && !editForm.rewardAmount.$pristine)||(editForm.rewardAmount.$error.required  &&  submitted)">Reward Amount is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="textToDisplay">Text To Display</label>
+                             <div ng-class="{'css-form-error': (editForm.textToDisplay.$invalid && !editForm.textToDisplay.$pristine) || (editForm.textToDisplay.$invalid && editForm.$submitted)||(editForm.textToDisplay.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="textToDisplay" name="textToDisplay" ng-model="reward.text_to_display" required>
+                            </div>
+                            <span class="input-error" ng-show="(editForm.textToDisplay.$error.required && !editForm.textToDisplay.$pristine)||(editForm.textToDisplay.$error.required  &&  submitted)">Text To Display is Required</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row btn-bottom">
+                    <div class="col-md-12">
+                        <button type="button" ng-click="cancel()" class="btn btn-danger btn-cancel btn-close pull-right">Cancel</button>
+                        <button type="submit" ng-click="updateReward(editForm.$valid)" class="btn btn-primary btn-save pull-right">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end add user box -->

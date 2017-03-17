@@ -1,0 +1,9 @@
+{
+"name" : "development",
+"urlname":"development",
+"videoUploadUrl":"http://localhost:9088/#/upload/",
+"httpUrl":"http://localhost:3000",
+"httpUrlVideoUpload":"http://localhost:3000",
+"smilUrl":"http://localhost:1935/vod/_definst_/",
+"imageUrl":"http://localhost:8595/video/"
+}

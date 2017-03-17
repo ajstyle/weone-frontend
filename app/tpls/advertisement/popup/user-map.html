@@ -1,0 +1,63 @@
+<div class="panel user-map  panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-map-marker"></i>Users Location</h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body " ng-controller="ChartControllermodal" ng-init="init(advertid,number_of_times_viewed)">
+        <div class="row scroller">
+            <div class="col-md-7">
+                <div id="map"></div>
+                <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+                    <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+                        <!--   <label id="names" >{{marker.title}}</label></a>-->
+                </div>
+            </div>
+            <div class="col-md-5 user-map">
+                <div class="user-map-head">
+                    <table>
+                        <thead table-head>
+                            <th style="width:84%">State</th>
+                            <th>Views</th>
+                        </thead>
+                    </table>
+                </div>
+                    <table class="table-border table-user-map" width="100%">
+
+                        <tr ng-repeat="locationObj in states">
+                            <td>{{locationObj.state}}</td>
+                            <td>{{locationObj.users}}</td>
+                        </tr>
+                    </table>
+                </div>
+              </div>
+            <div class="row" ng-show="cities.length > 0">
+                <div class="col-md-6">
+                  <p class="pull-left mt20" >{{skip}} - {{ skip+ city}} of {{skip + city}} Results</p>
+                  <!-- <p class="pull-left mt20" ng-if="searchByDate==true">{{skip}} - {{ skip + data.length}} of {{skip + data.length}} Results</p> -->
+
+                </div>
+                <div class="col-md-6 ">
+
+                    <pagination
+                    ng-model="currentPage"
+                  ng-change="pageChanged()"
+                    total-items="pageCounter"
+                    max-size="maxSize"
+                    boundary-links="true">
+                  </pagination>
+                </div>
+            </div>
+             <div class="row" ng-show="cities.length <=0">
+                 <p class="pull-left mt20 ml20">No data available</p>
+            </div>
+        </div>
+
+        </div>
+    <!-- </div> -->
+    <!--<div class="pannel-bottom">
+        <button class="btn btn-primary btn-cancel btn-close  pull-right" type="button" ng-click="cancel()">Close</button>
+    </div>-->
+<!-- </div>
+</div> -->

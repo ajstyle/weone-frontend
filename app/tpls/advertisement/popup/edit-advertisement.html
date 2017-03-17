@@ -1,0 +1,250 @@
+<!-- start add user box -->
+<div class="add-user-box clearfix">
+    <div class="panel advertisement-box panel-color panel-blue">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-pencil-square-o"></i> Edit Advertisement </h3>
+            <div class="panel-options">
+                <a href="" ng-click="ok()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="advertisementForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="advertisementName">Advertisement Name</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.advertisementName.$invalid && !advertisementForm.advertisementName.$pristine) || (advertisementForm.advertisementName.$invalid && advertisementForm.$submitted)||(advertisementForm.advertisementName.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="advertisementName" placeholder="Enter advertisement name" ng-model="advert.name_of_advert" name="advertisementName" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.advertisementName.$error.required && !advertisementForm.advertisementName.$pristine)||(advertisementForm.advertisementName.$error.required  &&  submitted)">Advertisement Name is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="advertisementsubTitle">Advertisement Sub Title</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.advertisementTitle.$invalid && !advertisementForm.advertisementTitle.$pristine) || (advertisementForm.advertisementTitle.$invalid && advertisementForm.$submitted)||(advertisementForm.advertisementTitle.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="advertisementsubTitle" placeholder="Enter Sub Title" ng-model="advert.advert_sub_title" name="advertisementTitle" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.advertisementTitle.$error.required && !advertisementForm.advertisementTitle.$pristine)||(advertisementForm.advertisementTitle.$error.required  &&  submitted)">Sub Title is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Advertisement Type</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.select.$invalid && !advertisementForm.select.$pristine) || (advertisementForm.select.$invalid && advertisementForm.$submitted)||(advertisementForm.select.$error.required && submitted )}">
+                                <div class="style-select">
+                                    <select name="select" class="select" ng-model="advert.advert_type" required>
+                                        <option value="" disabled="" selected="" style="display:none;" class="">Select Advertisement Type</option>
+                                        <option selected="selected">Video</option>
+                                        <option>Image</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.select.$error.required && !advertisementForm.select.$pristine)||(advertisementForm.select.$error.required  &&  submitted)">Advertisement Type is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6" ng-if="advert.advert_type=='Video'">
+                        <div class="clearfix">
+                            <label>Advertisement Thumbnail</label>
+                                <div class="form-control uploadInput">
+                                    <!--<span>Select Logo</span>-->
+                                   <input type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ng-model="custom_thmbnail1" ngf-max-height="1000" ngf-max-size="50MB"  >
+                                </div>
+                            <div class="imgb-pic">
+                                <img src="{{custom_thmbnail}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="advertisementUrl">Product URL</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.advertisementUrl.$invalid && !advertisementForm.advertisementUrl.$pristine) || (advertisementForm.advertisementUrl.$invalid && advertisementForm.$submitted)||(advertisementForm.advertisementUrl.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="advertisementUrl" placeholder="Enter Advertisement url" ng-model="advert.advert_url" name="advertisementUrl" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.advertisementUrl.$error.required && !advertisementForm.advertisementUrl.$pristine)||(advertisementForm.advertisementUrl.$error.required  &&  submitted)">Advertisement URL is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="costView">Cost per View</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.costView.$invalid && !advertisementForm.costView.$pristine) || (advertisementForm.costView.$invalid && advertisementForm.$submitted)||(advertisementForm.costView.$error.required && submitted )}">
+                                <input type="number" class="form-control" id="costView" placeholder="Enter Cost per View" ng-model="advert.cost_per_view" name="costView" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.costView.$error.required && !advertisementForm.costView.$pristine)||(advertisementForm.costView.$error.required  &&  submitted)">Cost per View is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="costClick">Cost per Click on Product URL</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.costClick.$invalid && !advertisementForm.costClick.$pristine) || (advertisementForm.costClick.$invalid && advertisementForm.$submitted)||(advertisementForm.costClick.$error.required && submitted )}">
+                                <input type="number" class="form-control" id="costView" placeholder="Enter Cost per Click" ng-model="advert.cost_per_click" name="costClick" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.costClick.$error.required && !advertisementForm.costClick.$pristine)||(advertisementForm.costClick.$error.required  &&  submitted)">Cost per Click is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="clientName">Client Name</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.client.$invalid && !advertisementForm.client.$pristine) || (advertisementForm.client.$invalid && advertisementForm.$submitted)||(advertisementForm.client.$error.required && submitted )}">
+                                <input type="text" ng-model="advert.client_details.name" name="client" class="form-control" id="clientName" placeholder="Enter client name" ng-disabled="true" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.client.$error.required && !advertisementForm.client.$pristine)||(advertisementForm.client.$error.required  &&  submitted)">client Name is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row calendar">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="startDate">Start Date</label>
+                                    <div ng-class="{'css-form-error': (advertisementForm.startDate.$invalid && !advertisementForm.startDate.$pristine) || (advertisementForm.startDate.$invalid && advertisementForm.$submitted)||(advertisementForm.startDate.$error.required && submitted )}">
+                                        <p>
+                                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="advert.schedule.start_date" is-open="startOpened" id="startDate" placeholder="Enter start date" min-date="minAdvStartDate" max-date="maxStartDate" datepicker-options="dateOptions" close-text="Close" ng-click="openStart()" readonly="true" name="startDate"  required>
+                                            <span class="to">to</span>
+                                        </p>
+                                    </div>
+                                    <span class="input-error" ng-show="(advertisementForm.startDate.$error.required && !advertisementForm.startDate.$pristine)||(advertisementForm.startDate.$error.required  &&  submitted)">Start Date is Required</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="endDate">End Date</label>
+                                    <div ng-class="{'css-form-error': (advertisementForm.endDate.$invalid && !advertisementForm.endDate.$pristine) || (advertisementForm.endDate.$invalid && advertisementForm.$submitted)||(advertisementForm.endDate.$error.required && submitted )}">
+                                        <p>
+                                            <input type="text" ng-click="openEnd()" placeholder="Enter end date" class="form-control" name="endDate" datepicker-popup="{{format}}" ng-model="advert.schedule.end_date" id="endDate" is-open="endOpened" min-date="advert.schedule.start_date" datepicker-options="dateOptions" close-text="Close" readonly="true" required >
+                                        </p>
+                                    </div>
+                                    <span class="input-error" ng-show="(advertisementForm.endDate.$error.required && !advertisementForm.endDate.$pristine)||(advertisementForm.endDate.$error.required  &&  submitted)">End Date is Required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="clientLocation">Client Location (optional)</label>
+                            <input ng-click="clientViewMap()" type="text" class="form-control width-full" id="clientLocation" name="clientLocation" ng-model="clientloglat" required ng-readonly="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="viewer-group clearfix">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="heading2">viewer group</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group clearfix">
+                                <label>Gender</label>
+                                <div class="radio">
+                                    <input type="radio" id="r1" name="radio" ng-model="advert.gender" value="male"/>
+                                    <label for="r1"><span></span>Male</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="r2" name="radio" ng-model="advert.gender" value="female"/>
+                                    <label for="r2"><span></span>Female</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="r3" name="radio" ng-model="advert.gender" value="both"/>
+                                    <label for="r3"><span></span>Both</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Age</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div ng-class="{'css-form-error': (advertisementForm.age.$invalid && !advertisementForm.age.$pristine) || (advertisementForm.age.$invalid && advertisementForm.$submitted)||(advertisementForm.age.$error.required && submitted )}">
+                                            <input type="number" min='1' class="form-control" id="clientName" placeholder="Enter Min Age" ng-model="advert.age_group.min_age" name="age" required >
+                                        </div>
+                                        <span class="input-error" ng-show="(advertisementForm.age.$invalid && !advertisementForm.age.$pristine)|| (advertisementForm.age.$error.required && !advertisementForm.age.$pristine)||(advertisementForm.age.$error.required  &&  submitted)">Min Age is Required</span>
+                                        <span class="to">to</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div ng-class="{'css-form-error': (advertisementForm.maxAge.$invalid && !advertisementForm.maxAge.$pristine) || (advertisementForm.maxAge.$invalid && advertisementForm.$submitted)||(advertisementForm.maxAge.$error.required && submitted )}">
+                                            <input type="number" min='1' class="form-control" id="clientName" placeholder="Enter Max Age"  name="maxAge" ng-model="advert.age_group.max_age" required>
+                                        </div>
+                                        <span class="input-error" ng-show="(advertisementForm.maxAge.$invalid && !advertisementForm.maxAge.$pristine)||(advertisementForm.maxAge.$error.required && !advertisementForm.maxAge.$pristine)||(advertisementForm.maxAge.$error.required  &&  submitted)">Max Age is Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group clearfix">
+                                <label>Marital Status</label>
+                                <div class="radio">
+                                    <input type="radio" id="r4" name="radio2" ng-model="advert.marital" value="married"/>
+                                    <label for="r4"><span></span>Married</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="r5" name="radio2" ng-model="advert.marital" value="unmarried"/>
+                                    <label for="r5"><span></span>Unmarried</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="r6" name="radio2" ng-model="advert.marital" value="both"/>
+                                    <label for="r6"><span></span>Both</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="location">Add Location</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.location.$invalid && !advertisementForm.location.$pristine) || (advertisementForm.location.$invalid && advertisementForm.$submitted)||(advertisementForm.location.$error.required && submitted )}">
+                                <input ng-click="viewMap()" type="text" class="form-control width-full" id="location" placeholder="Enter location name" name="location" ng-model="loglat" required ng-readonly="true">
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.location.$error.required && !advertisementForm.location.$pristine)||(advertisementForm.location.$error.required  &&  submitted)">Location is Required</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="radius">Enter Radius (km)</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.radius.$invalid && !advertisementForm.radius.$pristine) || (advertisementForm.radius.$invalid && advertisementForm.$submitted)||(advertisementForm.radius.$error.required && submitted )}">
+                                <input type="text" class="form-control" id="radius" placeholder="Enter radius (km)" name="radius" ng-model="advert.availablity_locality.radius" required>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.radius.$error.required && !advertisementForm.radius.$pristine)||(advertisementForm.radius.$error.required  &&  submitted)">Radius is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <div ng-class="{'css-form-error': (advertisementForm.description.$invalid && !advertisementForm.description.$pristine) || (advertisementForm.description.$invalid && advertisementForm.$submitted)||(advertisementForm.description.$error.required && submitted )}">
+                            <textarea id="description" placeholder="Enter description" class="textarea form-control" rows="4" cols="50" name="description" ng-model="advert.description" ng-required="true"></textarea>
+                            </div>
+                            <span class="input-error" ng-show="(advertisementForm.description.$error.required && !advertisementForm.description.$pristine)||(advertisementForm.description.$error.required  &&  submitted)">Description is Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btn-bottom">
+                    <div class="col-md-12">
+                        <button type="button" ng-click="cancel()" class="btn btn-danger btn-close btn-cancel pull-right">Cancel</button>
+                        <button type="submit" ng-click="updateAdvertisement(advertisementForm.advertisementName.$valid && advertisementForm.advertisementTitle.$valid && advertisementForm.advertisementUrl.$valid && advertisementForm.costView.$valid && advertisementForm.client.$valid && advertisementForm.age.$valid && advertisementForm.maxAge.$valid && advertisementForm.location.$valid && advertisementForm.radius.$valid && advertisementForm.description.$valid && advertisementForm.costClick.$valid)" class="btn btn-primary btn-save pull-right">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end add user box -->

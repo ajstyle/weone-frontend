@@ -1,0 +1,88 @@
+<div class="panel profile-box panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-balance-scale" aria-hidden="true"></i> Network Status</h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+     <!-- <div class="panel-body network-status" ng-show="showNetworkStatus">
+        <div class="row mb20">
+            <div class="col-md-2">
+                <h3 class="show-level first">{{level0.levelname}}</h3>
+            </div>
+            <div class="col-md-10">
+                <div class="user-network first">
+                    <div class="user-icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <h4>{{level0.name}}</h4>
+                    <span class="balance">{{level0.balance}}</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="user-network second-line pull-right">
+                    <div class="user-icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <h4>{{level1.leftName}}</h4>
+                    <span class="balance">{{level1.leftBalance}}</span>
+                </div>
+                <div class="user-network firsr-line">
+                    <div class="user-icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <h4>{{level1.rightName}}</h4>
+                    <span class="balance">{{level1.rightBalance}}</span>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabel-box">
+                  <div class="spinner" ng-show="loading">
+            <div class="loader" ></div>
+          </div>
+                <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="level in data">
+                            <td>{{level.name}}</td>
+                            <td>{{level.phonenumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="center row" ng-show="data.length > 0 ">
+                <div class="col-md-6">
+                    <p class="pull-left mt20">{{skip}} - {{ skip + data.length}} of {{skip +data.length}} Results</p>
+                </div>
+                <div class="col-md-6">
+                    <!-- <ul class="pagination">
+                        <li><a ng-click="showBankDetail('prev')"><i class="fa fa-angle-left"></i></a></li>
+                        <li ng-class="{active: $index===selectedIndex}" ng-repeat="i in totalPage  track by $index"><a ng-click="filterOnTabClickBankDetail($index)">{{$index+1}}</a></li>
+                        <li><a ng-click="showBankDetail('next')"><i class="fa fa-angle-right"></i></a></li>
+                    </ul> -->
+      <pagination
+      ng-model="currentPage"
+    ng-change="pageChangedInNetworkDetails()"
+      total-items="totalPage"
+      max-size="maxSize"
+      boundary-links="true">
+    </pagination>
+
+
+                </div>
+            </div>
+             <div class="center row" ng-show="data.length <=0 ">
+                 <p class="pull-left mt20 ml20">No data available</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>

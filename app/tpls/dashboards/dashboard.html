@@ -1,0 +1,183 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Dashboard" description=""></page-title>
+<div class="widget-area clearfix">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="icon-box">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="txtb">
+                        <h3 class="num">{{totalUsers}}</h3>
+                        <p>Total Users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default revenue">
+                <div class="panel-body">
+                    <div class="icon-box">
+                        <i class="fa fa-yelp"></i>
+                    </div>
+                    <div class="txtb">
+                        <h3 class="num">{{totalAdvertisement}}</h3>
+                        <p>Total advertisement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default new-users">
+                <div class="panel-body">
+                    <div class="icon-box">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="txtb">
+                        <h3 class="num"><i class="fa fa-inr">{{totalClientCharges}}</i></h3>
+                        <p>Totat Client Charges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="col-md-3">
+            <div class="panel panel-default bandwith">
+                <div class="panel-body">
+                    <div class="icon-box">
+                        <i class="fa fa-yelp"></i>
+                    </div>
+                    <div class="txtb xe-counter" data-count=".num" data-from="1" data-to="2102" data-suffix="k" data-duration="3" data-easing="false">
+                        <h3 class="num">1k</h3>
+                        <p>total bandwith</p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="accordion-box">
+            <div class="panel panel-default">
+                <div class="panel-heading bg-color">
+                    <h3 class="panel-title">Top 10 Clients</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="accordion-box-in">
+                        <accordion ng-repeat="client in clients">
+                            <accordion-group>
+                                <accordion-heading><img class="img-circle" src="{{(client.image_url)?client.image_url:'assets/images/user-2.png'}}" alt="img">{{client.name}} <span style="padding-top:11px;" class="pull-right"><i style="color:#222; font-size:15px;" class="fa fa-inr"></i>{{client.totalRevenue}}</span></accordion-heading>
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default bandwith">
+            <div class="bandwith">
+                <h4>total REVENUE</h4>
+                <div class="icon-box">
+                    <i class="fa fa-inr"></i>
+                </div>
+                <div class="txtb">
+                    <h3 class="num"><i class="fa fa-inr">{{totalRevenue}}</i></h3>
+                    <ul class="clearfix">
+                        <li>
+                            <span>last week</span>
+                            <h3 class="num"><i class="fa fa-inr">{{lastWeekRevenue}}</i></h3>
+                        </li>
+                        <li>
+                            <span>last month</span>
+                            <h3 class="num"><i class="fa fa-inr">{{lastMonthRevenue}}</i></h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="accordion-box">
+            <div class="panel panel-default">
+                <div class="panel-heading bg-color">
+                    <h3 class="panel-title">Top 10 Advertisement</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="accordion-box-in">
+                        <accordion>
+                            <accordion-group class="topAdvertisement" ng-repeat="advert in advertisements">
+                                <accordion-heading><img class="img-circle" src="{{(advert.custom_thmbnail)?advert.custom_thmbnail:advert.thumbnail}}" alt="img">{{advert.name_of_advert}}</accordion-heading>
+                                <p>Complete Views: {{advert.number_of_likes}}</p>
+                                <p>Likes: {{advert.number_of_times_complete_viewed}}</p>
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-controller="ChartController">
+    <div class="col-md-8">
+        <chart data="scoreHistory"></chart>
+
+    </div>
+    <div class="col-md-4 accordion-box">
+
+        <div class="accordion-box">
+            <div class="panel panel-default">
+                <div class="panel-heading bg-color">
+                    <h3 class="panel-title">WeOne Location</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="accordion-box-in">
+                        <accordion>
+                            <accordion-group>
+                                <accordion-heading>
+                                    <span> state</span>
+                                    <span style="float:right"> users</span>
+                                </accordion-heading>
+                            </accordion-group>
+                        </accordion>
+                        <accordion ng-repeat="locationObj in states">
+                            <accordion-group>
+                                <accordion-heading>
+                                    <span> {{locationObj.state}}</span>
+                                    <span style="float:right"> {{locationObj.users}}</span>
+                                </accordion-heading>
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel panel-default">
+            <div class="panel-heading bg-color">
+                <h3 class="panel-title">WeOne Location</h3>
+            </div>
+            <div class="panel-body show-location">
+                <table class="show-location-table" width="100%">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Users</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="show-location-in">
+                    <table class="show-location-table" width="100%">
+                        <tbody>
+                            <tr ng-repeat="locationObj in states">
+                                <td>{{locationObj.state}}</td>
+                                <td>{{locationObj.users}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+</div>

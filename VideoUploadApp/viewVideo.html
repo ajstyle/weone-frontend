@@ -1,0 +1,36 @@
+<div class="video-wrap">
+    <div class="view-video-box">
+       <img class="logo2" src="../assets/images/logo2.png" alt="logo">
+        <div class="demo">
+            <h4 class="heading"> Connect With Us.</h4>
+            <div ng-if ="fileTypeFlag" class="play-video-box">
+                <jwplayer ng-src="{{ file }}"
+                      player-options="options"
+                      player-id="myPlayer1">
+                </jwplayer>
+            </div>
+            <div class="view-image" ng-hide="fileTypeFlag">
+            <img src="{{image}}"/>
+            </div>
+            <div class="txtb">
+                <p>{{advName}}</p>
+                <h4>Enjoy Your Stay!</h4>
+            </div>
+        </div>
+            <div class="google-play">
+                <a href="https://play.google.com/store/apps/details?id=com.weone.android&hl=en"><img src="assets/images/img_android-app.png"></a>
+                <a href="https://itunes.apple.com/in/app/weone/id1074324945?mt=8"><img src="assets/images/img_app-store.png"></a>
+            </div>
+        <div class="bg-left">
+            <img src="../assets/images/pink-1.png" alt="img">
+        </div>
+        <div class="bg-right">
+            <img src="../assets/images/pink-4.png" alt="img">
+        </div>
+
+        <div class="wide-area">
+            <a href="http://weoneapp.com/" class="visit"><span>visit our site</span></a>
+        </div>
+        <p class="reserved">&copy; All rights Reserved</p>
+    </div>
+</div>

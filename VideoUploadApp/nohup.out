@@ -1,0 +1,52 @@
+
+/weone/weone/admin/VideoUploadApp/app.js:1
+tion (exports, require, module, __filename, __dirname) { var app1 = angular.mo
+                                                                    ^
+ReferenceError: angular is not defined
+    at Object.<anonymous> (/weone/weone/admin/VideoUploadApp/app.js:1:74)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:902:3
+
+/weone/weone/admin/VideoUploadApp/app.js:1
+tion (exports, require, module, __filename, __dirname) { var app1 = angular.mo
+                                                                    ^
+ReferenceError: angular is not defined
+    at Object.<anonymous> (/weone/weone/admin/VideoUploadApp/app.js:1:74)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:902:3
+
+/weone/weone/admin/VideoUploadApp/app.js:1
+tion (exports, require, module, __filename, __dirname) { var app1 = angular.mo
+                                                                    ^
+ReferenceError: angular is not defined
+    at Object.<anonymous> (/weone/weone/admin/VideoUploadApp/app.js:1:74)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:902:3
+
+/home/ubuntu/weone/weone-frontend/VideoUploadApp/app.js:1
+tion (exports, require, module, __filename, __dirname) { var app1 = angular.mo
+                                                                    ^
+ReferenceError: angular is not defined
+    at Object.<anonymous> (/home/ubuntu/weone/weone-frontend/VideoUploadApp/app.js:1:74)
+    at Module._compile (module.js:456:26)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:902:3

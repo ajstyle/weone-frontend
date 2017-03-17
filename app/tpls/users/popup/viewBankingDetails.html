@@ -1,0 +1,81 @@
+<!-- start add user box -->
+<div class="add-user-box clearfix">
+    <div class="panel profile-box panel-color panel-blue">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-pie-chart"></i> Banking Details</h3>
+            <div class="panel-options">
+                <a href="" ng-click="ok()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row" >
+                <div class="col-md-3" >
+                    <!-- <div class="profile-pic" ng-show="bankDetail!=null"  >
+                        <img class="img-inline" src="{{bankDetail.user.image_url}}" alt="img">
+                    </div> -->
+                </div>
+                <div class="col-md-9">
+                    <div class="profile-info">
+                        <div class="tabel-box">
+                            <table id="example-1" ng-show="bankDetail!=null" class="table table-striped" cellspacing="0" width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td> Name </td>
+                                        <td>{{bankDetail.user.name}}</td>
+                                    </tr>
+                                    <tr>
+                                          <td>Phone Number</td>
+                                        <td>{{bankDetail.mobile_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Account Number</td>
+                                        <td>{{bankDetail.acc_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IFSC Code</td>
+                                        <td>{{bankDetail.ifsc_code}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Branch Code</td>
+                                        <td>{{bankDetail.branch_code}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PAN Number</td>
+                                            <td>{{bankDetail.pan_card_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{bankDetail.email_id}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>{{bankDetail.address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>City</td>
+                                        <td>{{bankDetail.city}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pincode</td>
+
+                                        <td>{{bankDetail.pin_code}}</td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="center row" ng-show="bankDetail==null">
+                            <p class="pull-left mt20 ml20">No data available</p>
+                       </div>
+                        <button class="btn mt15 btn-primary btn-close btn-cancel pull-right" ng-click="ok()" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end add user box -->

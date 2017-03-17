@@ -1,0 +1,4 @@
+{ "name" : "production",
+  "backendurl" : "http://180.151.85.194:8080/samepinch/api/v1/",
+ "urlname":"production"
+}

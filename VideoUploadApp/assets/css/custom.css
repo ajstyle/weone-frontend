@@ -1,0 +1,373 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Open+Sans:400,300italic,400italic,800italic,700italic,800,700,600italic,600,300);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+	max-width: 100%;
+	width: auto\9;
+	height: auto;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    overflow: inherit
+   
+}
+
+.hiddenValue{
+    overflow: hidden
+}
+
+.video-wrap {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background:url("../images/bg_body.jpg") center top repeat;
+	-webkit-background-size:cover;
+	-khtml-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+    text-align: center;
+}
+.video-box {
+    width: 550px;
+    margin: 0 auto;
+    color: #fff;
+    top: 50%;
+    position: relative;
+     -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.logo {
+    background: rgba(19, 22, 107, 0.4);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 30px auto;
+    display: table;
+}
+.logo span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.heading {
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+.form-control {
+    text-align: left;
+    line-height: 25px;
+}
+.input-group-addon {
+    background: #161971;
+    color: #fff;
+}
+.input-group-addon:hover {
+    background: #1d207f;
+    color: #fff;
+}
+.btn-upload {
+    background: #161971;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+}
+.btn-upload:hover {
+    background: #1d207f;
+}
+.fileinput-filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 95%;
+}
+.progress div {
+    background: rgba(255, 255, 255, 0.85);
+    margin-top: 10px;
+    padding: 2px;
+    color: #161971;
+}
+.form-control {
+    height: 41px;
+}
+p.msg {
+    font-size: 25px;
+    text-transform: capitalize;
+    font-weight: 300;
+    margin-top: 20px;
+}
+.input-group-addon {
+    padding: 13px 23px;
+}
+.view-video-box {
+    width: 640px;
+    margin: 0 auto;
+    color: #fff;
+}
+.logo2 {
+    position: absolute;
+    top: 6%;
+    left: 4%;
+}
+.view-video-box .heading {
+    text-align: right;
+    font-family: 'Fjalla One', sans-serif;
+    margin: 30px 0 15px 0;
+    text-transform: uppercase;
+}
+.play-video-box {
+    width: 640px;
+    margin-bottom: 20px;
+}
+.jw-reset {
+    position: relative;
+    z-index:9999;
+}
+.bg-left img {
+    left: 10%;
+    position: absolute;
+    top: 20%;
+    width: 25%;
+}
+.bg-right img {
+    bottom: 16%;
+    position: absolute;
+    right: 10%;
+    width: 25%;
+    z-index: 99;
+}
+.wide-area {
+    background: url(../images/bg_white.png) left top no-repeat;
+	-webkit-background-size:cover;
+	-khtml-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+    width: 37%;
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    top: 0;
+}
+p.reserved {
+    position: absolute;
+    left: 4%;
+    bottom: 3%;
+}
+.view-video-box .txtb {
+    text-align: left;
+    margin-bottom: 30px;
+}
+.view-video-box .txtb h4 {
+    font-size: 17px;
+    margin: 0;
+}
+.view-video-box .txtb p {
+    margin-bottom: 0;
+}
+.visit {
+    background: #130377;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+    color: #fff;
+    position: absolute;
+    bottom: 6%;
+    left: 60%;
+    text-transform: capitalize;
+    text-decoration: none;
+    -ms-transform: skewX(-20deg); /* IE 9 */
+    -webkit-transform: skewX(-20deg); /* Safari */
+    transform: skewX(-20deg);
+}
+.visit span{
+    -ms-transform: skewX(20deg); /* IE 9 */
+    -webkit-transform: skewX(20deg); /* Safari */
+    transform: skewX(20deg);
+     
+  display: inline-block;
+}
+.visit:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.demo {
+    top: 50%;
+    position: absolute;
+     -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 999999;
+}
+.google-play {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+     -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/*
+.view-image {
+    padding: 30px 20px 20px 20px;
+    width: 640px;
+    height: 340px;
+    background: #000;
+    overflow: hidden;
+}
+*/
+
+
+.view-image {
+    width: 640px;
+    height: 440px;
+    background: #000;
+}
+.view-image img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.roman-list li {
+    list-style: lower-roman;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes checkmark {
+    0% {
+        stroke-dashoffset: 50px
+    }
+
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@-ms-keyframes checkmark {
+    0% {
+        stroke-dashoffset: 50px
+    }
+
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 50px
+    }
+
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@-webkit-keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 240px
+    }
+
+    100% {
+        stroke-dashoffset: 480px
+    }
+}
+
+@-ms-keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 240px
+    }
+
+    100% {
+        stroke-dashoffset: 480px
+    }
+}
+
+@keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 240px
+    }
+
+    100% {
+        stroke-dashoffset: 480px
+    }
+}
+.inlinesvg .svg svg {
+    display: inline
+}
+.icon--order-success svg path {
+    -webkit-animation: checkmark 0.25s ease-in-out 0.7s backwards;
+    animation: checkmark 0.25s ease-in-out 0.7s backwards
+}
+
+.icon--order-success svg circle {
+    -webkit-animation: checkmark-circle 0.6s ease-in-out backwards;
+    animation: checkmark-circle 0.6s ease-in-out backwards
+}
+
+
+@media (min-width: 1370px) and (max-width: 1920px) {
+    .bg-left img {
+        left: 13%;
+        top: 25%;
+}
+.bg-right img {
+        bottom: 23%;
+        right: 11%;
+    }
+}
+
+@media only screen and  (max-width:767px ) {
+    .video-box {
+        width: 90%;
+    }
+}
+
+

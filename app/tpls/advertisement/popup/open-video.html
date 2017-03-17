@@ -1,0 +1,21 @@
+<div class="panel view-advertisement-box panel-color panel-blue">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-eye"></i> Media </h3>
+        <div class="panel-options">
+            <a href="" ng-click="cancel()" class="btn-close-icon"> <i class="fa fa-times"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="center">
+            <img src={{previewImage}}>
+        </div>
+        <div class="video-container">
+           <!-- <iframe src="//content.jwplatform.com/players/KFXdxWR0-CViwkqfc.html" width="540" height="300" frameborder="0" scrolling="auto" allowfullscreen></iframe>-->
+            <jwplayer ng-src="{{ file }}"
+          player-options="options"
+          player-id="myPlayer1">
+</jwplayer>
+        </div>
+    </div>
+</div>
+
